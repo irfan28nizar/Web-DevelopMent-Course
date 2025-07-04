@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a simple calculator page">
+    <title>Simple calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <script src="scrip.js"></script>
+    <h1>Simple Calculator</h1>
+    <form>
+        <input type="text" id="num1" placeholder="Enter first number">
+        <input type="text" id="num2" placeholder="Enter second number">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operator = document.getElementById('operator').value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert("Cannot divide by zero.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Invalid operator.");
+                    return;
+            }
+
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+    <h2 id="result"></h2>
+   
+</body>
+</html>

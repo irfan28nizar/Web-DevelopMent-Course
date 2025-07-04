@@ -1,1 +1,1 @@
-alert("Welcome to my first HTML page!");
+alert("Welcome to simple calculator!");
